@@ -1,0 +1,26 @@
+{% extends 'productportfoliodjango/base.html' %}
+{% block 'above' %}
+{% load static %}
+<title>Homepage</title>
+<link rel="stylesheet" href="{% static 'products/style.css' %}">
+<link rel="stylesheet" href="{% static 'products/text-animate.css' %}">
+<div id="content">
+    {% for image, product in products %}
+    <div class="product" onclick="window.location = '/product/' + '{{ product.name }}'" onmouseover="let desc = this.children[0].children[0]; desc.classList.add('openTextAnimate'); desc.classList.remove('closeTextAnimate'); let title = this.children[1].children[0]; title.classList.remove('titleFadeOpenAnimate'); title.classList.add('titleFadeCloseAnimate')" onmouseout="let desc = this.children[0].children[0]; desc.classList.add('closeTextAnimate'); desc.classList.remove('openTextAnimate'); let title = this.children[1].children[0]; title.classList.add('titleFadeOpenAnimate'); title.classList.remove('titleFadeCloseAnimate')">
+        <div class="descMask">
+            <div class="productDescDiv">
+                <p class="productDesc">{{ product.desc }}</p>
+            </div>
+        </div>
+        <div class="flexBox">
+            <p class="productname">{{ product.name }}</p>
+        </div>
+        <img class="productImage" src="/media/{{ image }}" alt="{{ product.name }}">
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% block 'scripts' %}
+<script src="{% static 'products/home-responsive.js' %}"></script>
+<script src="{% static 'products/textshortener.js' %}"></script>
+{% endblock %}

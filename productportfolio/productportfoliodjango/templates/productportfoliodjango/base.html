@@ -1,0 +1,40 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'productportfoliodjango/style.css' %}">
+        <link rel="stylesheet" href="{% static 'productportfoliodjango/animation.css' %}">
+        <link rel="stylesheet" href="{% static 'productportfoliodjango/closeAnimation.css' %}">
+        <link rel="icon" href="{% static 'productportfoliodjango/favicon.ico' %}">
+    </head>
+    <body style="margin: 0">
+    {% block 'above' %}
+    {% endblock %}
+    <div id="navmenu">
+        <div id="navmenucontent">
+            <a class="navmenuelement" href="/">Home</a><br>
+            <a class="navmenuelement" href="/contact">Contact</a><br>
+        </div>
+    </div>
+    <div id="navbar">
+        <div id="navbutton" onclick="menuPressed()">
+            <svg class="navbuttonsvg">
+                <rect class="navbuttonrect" width="100%" height="100%"></rect>
+            </svg>
+
+            <svg class="navbuttonsvg" style="padding-top: 20%">
+                <rect class="navbuttonrect" width="100%" height="100%"></rect>
+            </svg>
+
+            <svg class="navbuttonsvg" style="padding-top: 20%">
+                <rect class="navbuttonrect" width="100%" height="100%"></rect>
+            </svg>
+        </div>
+        <a href="/"><img src="{% static 'productportfoliodjango/logo.png' %}" alt="LOGO" style="height: 80%; position: absolute; left: 48%; padding-top: 0.5%"></a>
+    </div>
+    </body>
+<script src="{% static 'productportfoliodjango/responsive.js' %}"></script>
+<script src="{% static 'productportfoliodjango/animationTrigger.js' %}"></script>
+<script src="{% static 'productportfoliodjango/base.js' %}"></script>
+{% block 'scripts' %}
+{% endblock %}
+</html>

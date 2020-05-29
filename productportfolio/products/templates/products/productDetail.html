@@ -1,0 +1,28 @@
+{% extends 'productportfoliodjango/base.html' %}
+{% block 'above' %}
+
+{% load static %}
+
+<title>{{ product.name }}</title>
+
+<link rel="stylesheet" href="{% static 'products/productDetail.css' %}">
+{% for im in images %}
+<img class="slideshow" style="display: none" src="/media/{{ im }}">
+{% endfor %}
+
+<div id="outerImDiv">
+    <div class="productImDiv">
+        <img class="prev-icon" src="{% static 'products/next.svg' %}" onclick="prevIm()">
+        <img class="next-icon" src="{% static 'products/next.svg' %}" onclick="nextIm()">
+        <img id="imageEl" data-imageNum="" class="productIm" src="" alt="{{ product.name }}">
+    </div>
+    <div class="productNameDiv">
+        <p class="productName">{{ product.name }}</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block 'scripts' %}
+<script src="{% static 'products/imageSlideshow.js' %}"></script>
+<script src="{% static 'products/productDetailRepsonsive.js' %}"></script>
+{% endblock %}

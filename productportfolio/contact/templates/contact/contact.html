@@ -1,0 +1,25 @@
+{% extends 'productportfoliodjango/base.html' %}
+
+{% load static %}
+
+{% block 'above' %}
+<title>Contact</title>
+<link rel="stylesheet" href="{% static 'contact/style.css'%}">
+<div class="form-box">
+    <div class="form-container">
+        <form method="post" action="/contact">
+            {% csrf_token %}
+            <label class="field-label" for="email-input">Email: </label>
+            <input class="input" id="email-input" type="text" name="email" placeholder="example@domain.com">
+            <br>
+            <label class="field-label" for="name-input">Name: </label>
+            <input class="input" id="name-input" type="text" name="name" placeholder="Name">
+            <br>
+            <label class="field-label" for="detail-input">Detail: </label>
+            <textarea class="input" id="detail-input" name="detail"></textarea>
+            <br>
+            <button id="submit" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
